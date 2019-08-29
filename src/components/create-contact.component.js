@@ -13,7 +13,7 @@ export default class CreateContact extends Component {
         this.onChangeAddress = this.onChangeAddress.bind(this);
         this.onChangePhone = this.onChangePhone.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
-        // this.onChangeBirthdate = this.onChangeBirthdate.bind(this);
+        this.onChangeBirthdate = this.onChangeBirthdate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -21,7 +21,7 @@ export default class CreateContact extends Component {
             address: '',
             phone: '',
             email: '',
-            // birthdate: new Date(),
+            birthdate: new Date(),
         }
     }
 
@@ -49,11 +49,11 @@ export default class CreateContact extends Component {
         })
     }
 
-    // onChangeBirthdate(birthdate) {
-    //     this.setState({
-    //         birthdate: birthdate
-    //     })
-    // }
+    onChangeBirthdate(birthdate) {
+        this.setState({
+            birthdate: birthdate
+        })
+    }
 
     onSubmit(e) {
         e.preventDefault();
@@ -63,7 +63,7 @@ export default class CreateContact extends Component {
             address: this.state.address,
             phone: this.state.phone,
             email: this.state.email,
-            // birthdate: this.state.birthdate,
+            birthdate: this.state.birthdate.toLocaleDateString('en-US'),
         }
 
         // sends user data to backend
@@ -116,7 +116,7 @@ export default class CreateContact extends Component {
                     onChange={this.onChangeEmail}
                     />
               </div>
-              {/* <div className="form-group">
+              <div className="form-group">
                 <label>Birthdate: </label>
                 <div>
                   <DatePicker
@@ -124,7 +124,7 @@ export default class CreateContact extends Component {
                     onChange={this.onChangeBirthdate}
                   />
                 </div>
-              </div> */}
+              </div>
               <div className="form-group">
                 <input type="submit" value="Create Contact" className="btn btn-primary" />
               </div>

@@ -15,17 +15,17 @@ router.route('/add').post((req, res) => {
     const address = req.body.address;
     const phone = req.body.phone;
     const email = req.body.email;
-    // const birthdate = Date.parse(req.body.birthdate);
+    const birthdate = Date.parse(req.body.birthdate);
 
-    const newContact = new Contact({ 
+    const newContact = new Contact({
         name,
         address,
         phone,
         email,
-        // birthdate,
+        birthdate,
     });
     
-    newContact.save() // save method is a promise 
+    newContact.save() // save method is a promise
         .then(() => res.json('Contact info added!'))
         .catch(err => res.status(400).json('Error: ' + err));
 
@@ -53,10 +53,7 @@ router.route('/update/:id').post((req, res) => {
             contact.address = req.body.address;
             contact.phone = req.body.phone;
             contact.email = req.body.email;
-            // contact.birthdate = Date.parse(req.body.birthdate);
-            // if(isNaN(req.body.birthdate)) { // in case of empty birthdate field that causes isNaN fiasco
-            //     contact.birthdate = 0;
-            // };
+            contact.birthdate = Date.parse(req.body.birthdate);
 
             contact.save()
                 .then(() => res.json('Contact updated!'))

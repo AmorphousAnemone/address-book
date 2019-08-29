@@ -17,25 +17,13 @@ const contactSchema = new Schema({
     },
     phone: {
         type: String,
-        // validate: {
-            /*validator: function(v) {
-              return /\d{3}-\d{3}-\d{4}/.test(v);
-            },
-            message: props => `${props.value} is not a valid phone number!`
-            */
-        //  },
+        trim: true,
     },
     email: {
         type: String,
-        trim: true,
-        // validate: (value) => {
-            /* return validator.isEmail(value)
-        },
-            message: props => `${props.value} is not a valid phone number!`
-            */
-        //  },
+        trim: true
     },
-    // birthdate: { type: Date },
+    birthdate: { type: Date },
 }, {
     timestamps: true,
 });

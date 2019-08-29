@@ -12,7 +12,7 @@ const Contact = (props) => (
         <td>{props.contact.address}</td>
         <td>{props.contact.phone}</td>
         <td>{props.contact.email}</td>
-        {/* <td>{props.contact.birthdate.substring(0,10)}</td> */}
+        <td>{props.contact.birthdate.substring(0, 10)}</td>
         <td>
             <Link to={ "/edit/" + props.contact._id }>edit</Link> | <a href="#" onClick={() => { props.deleteContact(props.contact._id) }}>delete</a>
         </td>
@@ -70,7 +70,7 @@ export default class ContactsList extends Component {
                             <th>Address</th>
                             <th>Phone</th>
                             <th>Email</th>
-                            {/* <th>Birthdate</th> */}
+                            <th>Birthdate</th>
                         </tr>
                     </thead>
                     <tbody>
